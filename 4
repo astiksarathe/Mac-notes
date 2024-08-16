@@ -1,0 +1,38 @@
+https://github.com/webdevmatrix/razorpay_reactjs_nodejs
+
+
+https://apiv2.shiprocket.in/v1/external/open/postcode/details?postcode=234982
+
+
+https://codepen.io/tutsplus/pen/XWYXVOa
+
+
+NOTE:- COD order will be confirmed on call; failure to confirm will result in cancellation.
+
+
+async (req, res, next) => {
+  const reviews = [];
+  const productId = new mongoose.Types.ObjectId("667580fb5bcae87af0f8da36");
+
+  for (let i = 1; i <= 400; i++) {
+    const rating = Math.floor(Math.random() * 5) + 1; // Generate a random rating between 1 and 5
+    reviews.push({
+      fullName: `Astik ${i}`,
+      email: `astik${i}@gmail.com`,
+      productId,
+      rating,
+      content: "NYC",
+      isVerified: Math.random() < 0.5, // Random boolean for isVerified
+    });
+  }
+
+  try {
+    await Review.insertMany(reviews);
+    res.send("400 reviews inserted successfully");
+    console.log("400 reviews inserted successfully");
+  } catch (err) {
+    next(err);
+    console.error("Error inserting reviews:", err);
+  }
+};
+
