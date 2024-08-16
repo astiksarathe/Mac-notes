@@ -1,0 +1,160 @@
+
+const [current, setCurrent] = useState("mail");
+
+
+
+const { accessToken } = useSelector((state) => state.auth);
+
+ 
+
+const items = [
+
+   {
+
+     label: "WHAT'S NEW",
+
+     key: "WHATS_NEW",
+
+   },
+
+   {
+
+     key: "alipay",
+
+     label: "BEST SELLET",
+
+   },
+
+   {
+
+     label: "SHOP",
+
+     key: "SHOP",
+
+     children: [
+
+       {
+
+         type: "group",
+
+         label: "Item 1",
+
+       },
+
+       {
+
+         type: "group",
+
+         label: "Item 2",
+
+       },
+
+     ],
+
+   },
+
+   {
+
+     label: "COLLECTION",
+
+     key: "COLLECTION",
+
+     children: [
+
+       {
+
+         type: "group",
+
+         label: "Item 1",
+
+       },
+
+       {
+
+         type: "group",
+
+         label: "Item 2",
+
+       },
+
+     ],
+
+   },
+
+   {
+
+     key: "BEST_SELLER",
+
+     label: "BEST SELLER",
+
+   },
+
+ ];
+
+
+
+ const onClick = (e) => {
+
+   console.log("click ", e);
+
+   setCurrent(e.key);
+
+ };
+
+ const profileMenu = [
+
+   {
+
+     label: <Link to={"/my-account/profile"}>Profile</Link>,
+
+     key: "Profile",
+
+   },
+
+   {
+
+     label: <Link to={"/my-account/orders"}>Orders</Link>,
+
+     key: "Orders",
+
+   },
+
+   {
+
+     label: <Link to={"/"}>Log out</Link>,
+
+     key: "Log_out",
+
+   },
+
+ ];
+
+
+
+ const loginMenu = [
+
+   {
+
+     label: (
+
+       <div
+
+         onClick={() => {
+
+           dispatch(openAuthDrawer());
+
+         }}
+
+       >
+
+         Log In
+
+       </div>
+
+     ),
+
+     key: "Log_In",
+
+   },
+
+ ];
